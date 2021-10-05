@@ -1,71 +1,94 @@
-import _ from 'lodash';
-import './style.css';
-import Icon from './icon.png';
-import printMe from './print.js';
+import _ from "lodash";
+import "./style.css";
+import Icon from "./icon.png";
+import printMe from "./print.js";
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').then(registration => {
-      console.log('SW registered: ', registration);
-    }).catch(registrationError => {
-      console.log('SW registration failed: ', registrationError);
-    });
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then((registration) => {
+        console.log("SW registered: ", registration);
+      })
+      .catch((registrationError) => {
+        console.log("SW registration failed: ", registrationError);
+      });
   });
 }
 
 function componentNav() {
-    const element = document.createElement('div');
-  
-    // Lodash, now imported in this script
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-    element.classList.add('hello');
+  const element = document.createElement("div");
+  const home = document.createElement("a");
+  const start = document.createElement("a");
+  const musicplayer = document.createElement("a");
+  const userProfil = document.createElement("a");
+  const logout = document.createElement("a");
 
-    // Add the image to our existing div.
-    const myIcon = new Image();
-    myIcon.src = Icon;
+  //navbar
+  //Home
+  var text = document.createTextNode("Home");
+  home.appendChild(text);
+  home.href = "http://example.com";
+  document.body.appendChild(home);
 
-    element.appendChild(myIcon);
+  //Start
+  var text = document.createTextNode("Start");
+  start.appendChild(text);
+  start.href = "http://example.com";
+  document.body.appendChild(start);
 
-    const btn = document.createElement('button');
+  //Musicplayer
+  var text = document.createTextNode("Muziekspeler");
+  musicplayer.appendChild(text);
+  musicplayer.href = "http://example.com";
+  document.body.appendChild(musicplayer);
 
-    btn.innerHTML = 'Click me and check the console!';
-    btn.onclick = printMe;
+  //UserProfil
+  var text = document.createTextNode("Gebruiker");
+  userProfil.appendChild(text);
+  userProfil.href = "http://example.com";
+  document.body.appendChild(userProfil);
 
-    element.appendChild(btn);
-  
-    return element;
-  }
+  //Logout
+  var text = document.createTextNode("Uitloggen");
+  logout.appendChild(text);
+  logout.href = "http://example.com";
+  document.body.appendChild(logout);
 
-  function componentBody() {
-    const element = document.createElement('div');
-  
+  // const btn = document.createElement("button");
 
+  // btn.innerHTML = "Click me and check the console!";
+  // btn.onclick = printMe;
 
-    const btn = document.createElement('button');
+  element.appendChild(btn);
 
-    btn.innerHTML = 'Body';
-    btn.onclick = printMe;
+  return element;
+}
 
-    element.appendChild(btn);
-  
-    return element;
-  }
+function componentBody() {
+  const element = document.createElement("div");
+  const title = document.createElement("h1");
 
-  function componentFooter() {
-    const element = document.createElement('div');
-  
+  title.innerHTML = 'Welkom op de homepagina!';
 
+  return element;
+}
 
-    const btn = document.createElement('button');
+function componentFooter() {
+  const element = document.createElement("div");
+  const footer = document.createElement('footer');
+  const paragraph = document.createElement('p');
+  const paragraph2 = document.createElement('p');
+  const paragraph3 = document.createElement('p');
+  const tekst = document.createElement('a');
 
-    btn.innerHTML = 'footer';
-    btn.onclick = printMe;
+  paragraph.innerText = 'Developers: TP & JO'
+  paragraph2.innerText = 'thibault.parmentier@example.com'
+  paragraph3.innerText = 'justin.ooghe@example.com'
 
-    element.appendChild(btn);
-  
-    return element;
-  }
-  
-  document.body.appendChild(componentNav());
-  document.body.appendChild(componentBody());
-  document.body.appendChild(componentFooter());
+  return element;
+}
+
+document.body.appendChild(componentNav());
+document.body.appendChild(componentBody());
+document.body.appendChild(componentFooter());
