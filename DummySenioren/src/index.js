@@ -16,8 +16,17 @@ if ("serviceWorker" in navigator) {
   });
 }
 
+
 function componentNav() {
-  const element = document.createElement("div");
+
+  //elements for navbar
+  // const element = document.createElement("div");
+  const nav = document.createElement("ul");
+  const navItem1 = document.createElement("li");
+  const navItem2 = document.createElement("li");
+  const navItem3 = document.createElement("li");
+  const navItem4 = document.createElement("li");
+  const navItem5 = document.createElement("li");
   const home = document.createElement("a");
   const start = document.createElement("a");
   const musicplayer = document.createElement("a");
@@ -26,50 +35,51 @@ function componentNav() {
 
   //navbar
   //Home
-  var text = document.createTextNode("Home");
+  var text = document.createTextNode("SeniorenCafé");
   home.appendChild(text);
   home.href = "http://example.com";
-  document.body.appendChild(home);
+  navItem1.appendChild(home);
+  nav.appendChild(navItem1);
 
   //Start
-  var text = document.createTextNode("Start");
+  var text = document.createTextNode("Admin Board");
   start.appendChild(text);
   start.href = "http://example.com";
-  document.body.appendChild(start);
+  navItem2.appendChild(start);
+  nav.appendChild(navItem2);
 
   //Musicplayer
   var text = document.createTextNode("Muziekspeler");
   musicplayer.appendChild(text);
   musicplayer.href = "http://example.com";
-  document.body.appendChild(musicplayer);
+  navItem3.appendChild(musicplayer);
+  nav.appendChild(navItem3);
 
   //UserProfil
-  var text = document.createTextNode("Gebruiker");
+  var text = document.createTextNode("Gebruikernaam");
   userProfil.appendChild(text);
   userProfil.href = "http://example.com";
-  document.body.appendChild(userProfil);
+  navItem4.appendChild(userProfil);
+  nav.appendChild(navItem4);
 
   //Logout
   var text = document.createTextNode("Uitloggen");
   logout.appendChild(text);
   logout.href = "http://example.com";
-  document.body.appendChild(logout);
+  navItem5.appendChild(logout);
+  nav.appendChild(navItem5);
+  // element.appendChild(nav);
 
-  // const btn = document.createElement("button");
-
-  // btn.innerHTML = "Click me and check the console!";
-  // btn.onclick = printMe;
-
-  element.appendChild(btn);
-
-  return element;
+  return nav;
 }
 
 function componentBody() {
   const element = document.createElement("div");
   const title = document.createElement("h1");
 
-  title.innerHTML = 'Welkom op de homepagina!';
+  var text = document.createTextNode("Welkom op de homepagina!");
+  title.appendChild(text);
+  element.appendChild(title);
 
   return element;
 }
@@ -80,15 +90,23 @@ function componentFooter() {
   const paragraph = document.createElement('p');
   const paragraph2 = document.createElement('p');
   const paragraph3 = document.createElement('p');
-  const tekst = document.createElement('a');
 
-  paragraph.innerText = 'Developers: TP & JO'
-  paragraph2.innerText = 'thibault.parmentier@example.com'
-  paragraph3.innerText = 'justin.ooghe@example.com'
+  var footerText1 = document.createTextNode("Developers: TP & JO");
+  var footerText2 = document.createTextNode("thibault.parmentier@example.com");
+  var footerText3 = document.createTextNode("justin.ooghe@example.com");
+  paragraph.appendChild(footerText1);
+  paragraph2.appendChild(footerText2);
+  paragraph3.appendChild(footerText3);
+  footer.appendChild(paragraph);
+  footer.appendChild(paragraph2);
+  footer.appendChild(paragraph3);
 
-  return element;
+  // element.appendChild(footer);
+
+  return footer;
 }
 
 document.body.appendChild(componentNav());
 document.body.appendChild(componentBody());
 document.body.appendChild(componentFooter());
+
