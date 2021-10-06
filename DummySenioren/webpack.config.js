@@ -10,7 +10,7 @@ module.exports = {
       },
       plugins: [
         new HtmlWebpackPlugin({
-          title: 'Progressive Web Application',
+          title: 'SeniorenCafé',
         }),
        // new WorkboxPlugin.GenerateSW({
           // these options encourage the ServiceWorkers to get in there fast
@@ -22,9 +22,10 @@ module.exports = {
         swSrc: './src/sw.js',
       }),
       new WebpackPwaManifest({
-        name: 'My Progressive Web App',
-        short_name: 'MyPWA',
-        description: 'My awesome Progressive Web App!',
+        name: 'SeniorenCafé PWA',
+        short_name: 'SC',
+        description: 'SeniorenCafé application with musicplayer!',
+        theme_color: '#ffffff',
         background_color: '#ffffff',
         crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
         publicPath: './',
@@ -41,7 +42,7 @@ module.exports = {
             src: path.resolve('./src/assets/maskable-1024.png'),
             size: '1024x1024',
             purpose: 'maskable'
-          }
+          },
         ]
       })    
       ],
